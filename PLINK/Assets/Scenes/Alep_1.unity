@@ -6440,6 +6440,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TOKEN_0
       objectReference: {fileID: 0}
+    - target: {fileID: 7380002974694787487, guid: 905eb73147022c042ba96f0f5ba88cca, type: 3}
+      propertyPath: bounce
+      value: 
+      objectReference: {fileID: 8300000, guid: 2e81595329d8b954a8d86ad7b68b7f8d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -134,7 +134,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      alep_0: 2252906818241853404
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
