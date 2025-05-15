@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,6 +10,8 @@ public class TokenController : MonoBehaviour
     private bool isDropped = false;
     
     private AudioSource audioSource;
+    public float timeBetweenBounceSFX = 0.1f;
+    private float lastBounceTime = -Mathf.Infinity;
     public AudioClip bounce;
 
     private void Start()
@@ -27,14 +30,10 @@ public class TokenController : MonoBehaviour
 
     private void HandleMovement()
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(Vector2.left * moveSpeed * Time.deltaTime);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(Vector2.right * moveSpeed * Time.deltaTime);
-        }
+        // move token based on horizontal input
+        float moveHorizontal = Input.GetAxis ("Horizontal");
+        Vector2 movement = new Vector2(moveHorizontal, 0);
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
         
         if (Input.GetKey(KeyCode.Space))
         {
@@ -43,8 +42,18 @@ public class TokenController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D()
+    private void OnCollisionEnter2D()
     {
-        audioSource.PlayOneShot(bounce);
+        if (isDropped && CanPlayBounceSFX())
+        {
+            audioSource.PlayOneShot(bounce);
+            lastBounceTime = Time.time;
+        }
+    }
+
+    private bool CanPlayBounceSFX()
+    {
+        // check if enough time has passed since the last bounce
+        return Time.time - lastBounceTime >= timeBetweenBounceSFX;
     }
 }
