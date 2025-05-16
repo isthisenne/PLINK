@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = Unity.Mathematics.Random;
 
 public class TokenController : MonoBehaviour
 {
+    private LevelManager levelManager;
     public float moveSpeed = 10f;
     private Rigidbody2D rb2d;
     private bool isDropped = false;
@@ -18,6 +20,7 @@ public class TokenController : MonoBehaviour
     {
         rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
     }
 
     private void Update()
@@ -42,12 +45,27 @@ public class TokenController : MonoBehaviour
         }
     }
 
+    // checks wall collision
     private void OnCollisionEnter2D()
     {
         if (isDropped && CanPlayBounceSFX())
         {
+            audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
             audioSource.PlayOneShot(bounce);
             lastBounceTime = Time.time;
+        }
+    }
+    
+    // enter win/lose zones
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Fail"))
+        {
+            levelManager.Fail();
+        }
+        else if (other.gameObject.CompareTag("Win"))
+        {
+            levelManager.ProgressLevel();
         }
     }
 

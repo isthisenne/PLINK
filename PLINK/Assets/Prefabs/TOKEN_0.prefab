@@ -167,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
+  timeBetweenBounceSFX: 0.15
   bounce: {fileID: 8300000, guid: 2e81595329d8b954a8d86ad7b68b7f8d, type: 3}
 --- !u!82 &2102214664559036357
 AudioSource:
