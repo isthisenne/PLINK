@@ -38,7 +38,7 @@ public class TokenController : MonoBehaviour
         Vector2 movement = new Vector2(moveHorizontal, 0);
         transform.Translate(movement * moveSpeed * Time.deltaTime);
         
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb2d.constraints = RigidbodyConstraints2D.None;
             isDropped = true;
