@@ -22,16 +22,16 @@ public class LevelManager : MonoBehaviour
     public void ProgressLevel()
     {
         Debug.Log("YOU WIN!");
-        SceneManager.LoadScene("TITLE");
+        GameManager.Instance.LoadNextLevel();
     }
 
     public void Fail()
     {
-        Debug.Log("Fail, " + health + " life left.");
         health -= 1;
+        Debug.Log("Fail, " + health + " life left.");
         if (health == 0)
         {
-            SceneManager.LoadScene("TITLE");
+            GameManager.Instance.RestartGame();
         }
         
         UpdateHealthUI();

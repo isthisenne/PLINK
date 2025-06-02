@@ -8,7 +8,7 @@ public class TitleScreenManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("Alep_1");
+            GameManager.Instance.LoadNextLevel();
         }
     }
 }
