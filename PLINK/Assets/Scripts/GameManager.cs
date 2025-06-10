@@ -34,9 +34,14 @@ public class GameManager : MonoBehaviour
     }
 
     // get current level
-    public void GetCurrentLevel()
+    private void GetCurrentLevel()
     {
         currentLevel = (Level)SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public string CurrentLevel()
+    {
+        return currentLevel.ToString();
     }
     
     // loads the current set scene

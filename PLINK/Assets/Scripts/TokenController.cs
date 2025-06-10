@@ -16,6 +16,21 @@ public class TokenController : MonoBehaviour
     private float lastBounceTime = -Mathf.Infinity;
     public AudioClip bounce;
 
+    // the Awake() function will handle level-specific modifiers to the token
+    private void Awake()
+    {
+        if (GameManager.Instance.CurrentLevel().Equals("Bet_1") ||
+            GameManager.Instance.CurrentLevel().Equals("Bet_2") ||
+            GameManager.Instance.CurrentLevel().Equals("Bet_3"))
+        {
+            this.transform.localScale = new Vector3(0.5f, 0.5f);
+        }
+        else
+        {
+            this.transform.localScale = Vector3.one;
+        }
+    }
+
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
