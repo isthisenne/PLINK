@@ -15,6 +15,12 @@ public class TokenController : MonoBehaviour
     public float timeBetweenBounceSFX = 0.1f;
     private float lastBounceTime = -Mathf.Infinity;
     public AudioClip bounce;
+    
+    // used for secondary loss condition
+    private float lastYPos = -100f;
+    private float yThreshold = 3f;
+    private float heightCheckInterval = 2f;
+    private float heightCheckTimer = 0f;
 
     // the Awake() function will handle level-specific modifiers to the token
     private void Awake()
@@ -44,6 +50,15 @@ public class TokenController : MonoBehaviour
         {
             HandleMovement();
         }
+        else
+        {
+            heightCheckTimer += Time.deltaTime;
+            if (heightCheckTimer >= heightCheckInterval)
+            {
+                heightCheckTimer = 0f;
+                CheckFalling(transform.position.y);
+            }
+        }
     }
 
     private void HandleMovement()
@@ -58,6 +73,17 @@ public class TokenController : MonoBehaviour
             rb2d.constraints = RigidbodyConstraints2D.None;
             isDropped = true;
         }
+    }
+
+    private void CheckFalling(float yPos)
+    {
+        // reset token if not moving
+        if (Math.Abs(yPos - lastYPos) < yThreshold)
+        {
+            levelManager.Fail();
+            Debug.Log("Token stuck, resetting");
+        }
+        lastYPos = yPos;
     }
 
     // checks wall collision
