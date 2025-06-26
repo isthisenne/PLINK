@@ -742,7 +742,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &199020609
+--- !u!1 &205129258
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -750,22 +750,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 199020611}
-  - component: {fileID: 199020610}
+  - component: {fileID: 205129260}
+  - component: {fileID: 205129259}
   m_Layer: 0
-  m_Name: bet_0
+  m_Name: bet 1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!212 &199020610
+--- !u!212 &205129259
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199020609}
+  m_GameObject: {fileID: 205129258}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -803,28 +803,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: -6576558529223127902, guid: a309eecc5e3b9964c804e5481e4e6860, type: 3}
-  m_Color: {r: 0.45496613, g: 0.6792453, b: 0.610135, a: 0.35686275}
+  m_Sprite: {fileID: -1974764243194373063, guid: f6f0163bed0b76843bb293488a6074d2, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.76, y: 7.52}
+  m_Size: {x: 20.02, y: 20.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &199020611
+--- !u!4 &205129260
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 199020609}
+  m_GameObject: {fileID: 205129258}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -5831,4 +5831,4 @@ SceneRoots:
   - {fileID: 1706392036}
   - {fileID: 1594959729}
   - {fileID: 1167899914}
-  - {fileID: 199020611}
+  - {fileID: 205129260}
