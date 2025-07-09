@@ -25,6 +25,7 @@ public class TokenController : MonoBehaviour
     // the Awake() function will handle level-specific modifiers to the token
     private void Awake()
     {
+        // bet size modifier
         if (GameManager.Instance.CurrentLevel().Equals("Bet_1") ||
             GameManager.Instance.CurrentLevel().Equals("Bet_2") ||
             GameManager.Instance.CurrentLevel().Equals("Bet_3"))
@@ -35,6 +36,19 @@ public class TokenController : MonoBehaviour
         {
             this.transform.localScale = Vector3.one;
         }
+        
+        // gimel bounce modifier
+        PhysicsMaterial2D physicsMaterial = new PhysicsMaterial2D();
+        physicsMaterial.friction = 0.4f;
+        physicsMaterial.bounciness = 0.3f;
+        
+        if (GameManager.Instance.CurrentLevel().Equals("Gimel_1") ||
+            GameManager.Instance.CurrentLevel().Equals("Gimel_2") ||
+            GameManager.Instance.CurrentLevel().Equals("Gimel_3"))
+        {
+            physicsMaterial.bounciness = 0.8f;
+        }
+        GetComponent<CircleCollider2D>().sharedMaterial = physicsMaterial;
     }
 
     private void Start()
