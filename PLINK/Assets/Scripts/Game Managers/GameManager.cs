@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     // add all new levels here and to build profile
     public enum Level
     {
-        Title, Alep_1, Alep_2, Alep_3, Bet_1, Bet_2, Bet_3, Gimel_1, Gimel_2, Gimel_3
+        Title, Alep_1, Alep_2, Alep_3, Bet_1, Bet_2, Bet_3, Gimel_1, Gimel_2, Gimel_3, Dalet_1, Dalet_2, Dalet_3
     }
 
     public Level currentLevel = 0;
