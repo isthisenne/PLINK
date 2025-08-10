@@ -21,7 +21,7 @@ public class ExitManager : MonoBehaviour
             escapeTimer += Time.deltaTime;
             int exitProgress = (int)((escapeTimer / timeToQuit) * 3); // go from 0 to 3 dots
             string dots = new string('.', exitProgress);
-            text.text = "Exitting" + dots;
+            text.text = "Exiting" + dots;
         }
         else
         {
