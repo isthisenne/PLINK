@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set; }
+    LevelTransitionStart levelTransition;  // reference to the level transitioner
     
     // LIST OF ALL LEVELS
     // add all new levels here and to build profile
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        // singleton
         if (Instance == null)
         {
             Instance = this;
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
     // loads the current set scene
     public void LoadCurrentScene()
     {
+        levelTransition = null;
         SceneManager.LoadScene(currentLevel.ToString());
     }
 
@@ -59,6 +62,15 @@ public class GameManager : MonoBehaviour
         if (nextLevel < (Level)System.Enum.GetNames(typeof(Level)).Length)
         {
             currentLevel = nextLevel;
+
+            // play level transition if end of stage
+            levelTransition = FindObjectOfType<LevelTransitionStart>();
+            if (levelTransition != null)
+            {
+                levelTransition.TransitionToNextLevel();
+                return;
+            }
+            
             LoadCurrentScene();
         }
         else

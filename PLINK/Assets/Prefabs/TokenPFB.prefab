@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7380002974694787487}
   - component: {fileID: 2102214664559036357}
   m_Layer: 0
-  m_Name: TOKEN_0
+  m_Name: TokenPFB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81c037e1cd193b141a7783f5a03c281b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 12
   timeBetweenBounceSFX: 0.15
   bounce: {fileID: 8300000, guid: 2e81595329d8b954a8d86ad7b68b7f8d, type: 3}
 --- !u!82 &2102214664559036357
