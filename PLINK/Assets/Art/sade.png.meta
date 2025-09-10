@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f00c4398863aa1240bd5a02e2fb7ffb8
+guid: baa662aa8140f5d43aad3f9e046e1700
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2252906818241853404
-    second: alep_0
+      213: -8698030267966356022
+    second: sade_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: alep_0
+      name: sade_0
       rect:
         serializedVersion: 2
-        x: 404
-        y: 374
-        width: 1973
-        height: 2102
+        x: 499
+        y: 499
+        width: 2002
+        height: 2002
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cd77c5590dee34f10800000000000000
-      internalID: 2252906818241853404
+      spriteID: ac505403e836a4780800000000000000
+      internalID: -8698030267966356022
       vertices: []
       indices: 
       edges: []
@@ -134,8 +134,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      alep_0: 2252906818241853404
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
