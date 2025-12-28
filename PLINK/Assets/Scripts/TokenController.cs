@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using Random = Unity.Mathematics.Random;
 
 public class TokenController : MonoBehaviour
 {
@@ -10,6 +7,7 @@ public class TokenController : MonoBehaviour
     public float moveSpeed = 10f;
     private Rigidbody2D rb2d;
     private bool isDropped = false;
+    private bool useMouseControls = true; // whether input is using mouse or keyboard controls
     
     private AudioSource audioSource;
     public float timeBetweenBounceSFX = 0.1f;
@@ -21,6 +19,7 @@ public class TokenController : MonoBehaviour
     private float yThreshold = 3f;
     private float heightCheckInterval = 2f;
     private float heightCheckTimer = 0f;
+    
 
     // the Awake() function will handle level-specific modifiers to the token
     private void Awake()
@@ -56,10 +55,12 @@ public class TokenController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        Cursor.visible = false;
     }
 
     private void Update()
     {
+        // handle token physics
         if (!isDropped)
         {
             HandleMovement();
@@ -73,16 +74,39 @@ public class TokenController : MonoBehaviour
                 CheckFalling(transform.position.y);
             }
         }
+        
+        // check input style
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)
+            || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            useMouseControls = false;
+        }
+        else if (Input.GetMouseButtonDown(0))
+        {
+            useMouseControls = true;
+        }
     }
 
     private void HandleMovement()
     {
         // move token based on horizontal input
-        float moveHorizontal = Input.GetAxis ("Horizontal");
-        Vector2 movement = new Vector2(moveHorizontal, 0);
-        transform.Translate(movement * moveSpeed * Time.deltaTime);
+        if (!useMouseControls)
+        {
+            float moveHorizontal = Input.GetAxis ("Horizontal");
+            Vector2 movement = new Vector2(moveHorizontal, 0);
+            transform.Translate(movement * moveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPosition.x = Mathf.Clamp(mouseWorldPosition.x, -23, 23); // keep token inside level
+            Vector3 pos = transform.localPosition;
+            pos.x = mouseWorldPosition.x;
+            transform.localPosition = pos;
+        }
         
-        if (Input.GetKeyDown(KeyCode.Space))
+        if ((Input.GetKeyDown(KeyCode.Space) && !useMouseControls)
+            || Input.GetMouseButtonDown(0) && useMouseControls)
         {
             rb2d.constraints = RigidbodyConstraints2D.None;
             isDropped = true;

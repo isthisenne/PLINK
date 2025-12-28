@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public GameObject healthIndicator;
     private List<GameObject> healthIndicators = new List<GameObject>();
     private int health = 3;
-
+    
     private void Start()
     {
         token = Instantiate(tokenPrefab, tokenSpawnPosition, Quaternion.identity);
