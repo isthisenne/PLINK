@@ -55,7 +55,7 @@ public class TokenController : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
         levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        Cursor.visible = false;
+        // Cursor.visible = false;
     }
 
     private void Update()
