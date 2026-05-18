@@ -44,6 +44,162 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dalet_3.unity
     guid: 91da1aeef1d3c3c4f8794b3930db48f7
+  - enabled: 1
+    path: Assets/Scenes/He_1.unity
+    guid: a1c77578b11e1ce41bbdfed85ce9c170
+  - enabled: 1
+    path: Assets/Scenes/He_2.unity
+    guid: f84dc76afe4bf9749924221c673e281a
+  - enabled: 1
+    path: Assets/Scenes/He_3.unity
+    guid: c2c57844c59556c448167330b9e8fb84
+  - enabled: 1
+    path: Assets/Scenes/Waw_1.unity
+    guid: 66bf31d7d7166614b97418c620212c21
+  - enabled: 1
+    path: Assets/Scenes/Waw_2.unity
+    guid: c5544cf669b1f114db26ec97ae535ae0
+  - enabled: 1
+    path: Assets/Scenes/Waw_3.unity
+    guid: 4c3f00b7bfe3164488f24e0864be36b8
+  - enabled: 1
+    path: Assets/Scenes/Zayin_1.unity
+    guid: 789ed8f49efee1145af37cd53c6ff218
+  - enabled: 1
+    path: Assets/Scenes/Zayin_2.unity
+    guid: 9f36e6d0535a9e746b502e6be6066ef9
+  - enabled: 1
+    path: Assets/Scenes/Zayin_3.unity
+    guid: 309121e748153db42a7f4beb8c3f8155
+  - enabled: 1
+    path: Assets/Scenes/Het_1.unity
+    guid: 48d344a5b1485bc43bc4d935aa05b11e
+  - enabled: 1
+    path: Assets/Scenes/Het_2.unity
+    guid: db58449e90af8314396e88f6a99df1a0
+  - enabled: 1
+    path: Assets/Scenes/Het_3.unity
+    guid: acb8c3cf6b7ea5d408a88b25e8df7fb8
+  - enabled: 1
+    path: Assets/Scenes/Tet_1.unity
+    guid: e93da62c52830a9468af04ccc351a3fb
+  - enabled: 1
+    path: Assets/Scenes/Tet_2.unity
+    guid: a5590fb0fbeefc24ea4e38c79f1169ca
+  - enabled: 1
+    path: Assets/Scenes/Tet_3.unity
+    guid: afdb9a6894cf79c4a81d97bfcc64c643
+  - enabled: 1
+    path: Assets/Scenes/Yod_1.unity
+    guid: 48c50a2791dd62147a30a5ebc2f5c2aa
+  - enabled: 1
+    path: Assets/Scenes/Yod_2.unity
+    guid: 5869a0fe4c29142498b6e3633d2f20b5
+  - enabled: 1
+    path: Assets/Scenes/Yod_3.unity
+    guid: beefac839e9711f4d879afcd0f6eb33a
+  - enabled: 1
+    path: Assets/Scenes/Kap_1.unity
+    guid: e076a45793c37d24bb7d09fc21903784
+  - enabled: 1
+    path: Assets/Scenes/Kap_2.unity
+    guid: c72f62c03a17fcb46b87e84a34aa1c53
+  - enabled: 1
+    path: Assets/Scenes/Kap_3.unity
+    guid: bd032d503e14e384eba208945850dfc1
+  - enabled: 1
+    path: Assets/Scenes/Lamed_1.unity
+    guid: db07ce86aaa8aa443ae1a21685b68276
+  - enabled: 1
+    path: Assets/Scenes/Lamed_2.unity
+    guid: ccea830e69dea594287f1464e68dc5e0
+  - enabled: 1
+    path: Assets/Scenes/Lamed_3.unity
+    guid: a64a17d915f2edd4f8ce75cd137e00a8
+  - enabled: 1
+    path: Assets/Scenes/Mem_1.unity
+    guid: d4579164362b49b49b4ba5e1468bf744
+  - enabled: 1
+    path: Assets/Scenes/Mem_3.unity
+    guid: 2effb204cf37bff48851a64f2f419039
+  - enabled: 1
+    path: Assets/Scenes/Mem_2.unity
+    guid: ade90e495016460429db21551d75cd81
+  - enabled: 1
+    path: Assets/Scenes/Nun_1.unity
+    guid: e9641c2c978d5fe4ebc64f8443f2544a
+  - enabled: 1
+    path: Assets/Scenes/Nun_2.unity
+    guid: 40c5469ff6d24594d9f619d8814491b8
+  - enabled: 1
+    path: Assets/Scenes/Nun_3.unity
+    guid: 0ecb0c6eb728d0045915e30d3a74cd9b
+  - enabled: 1
+    path: Assets/Scenes/Samekh_1.unity
+    guid: 4a369f4ea5fce584b8cedecb82cc52e5
+  - enabled: 1
+    path: Assets/Scenes/Samekh_2.unity
+    guid: 252fd1fe4aeb0fe48a34d61e300dfbe0
+  - enabled: 1
+    path: Assets/Scenes/Samekh_3.unity
+    guid: d3c06634bd869724590ee0c1d297e7f1
+  - enabled: 1
+    path: Assets/Scenes/Ayin_1.unity
+    guid: a2e525f756d319f4c90b126fe4a357b6
+  - enabled: 1
+    path: Assets/Scenes/Ayin_2.unity
+    guid: fc5d2b9d1447f004d8f3551a09fa6082
+  - enabled: 1
+    path: Assets/Scenes/Ayin_3.unity
+    guid: 6b61b26451fd0de499d2927a6f111c05
+  - enabled: 1
+    path: Assets/Scenes/Pe_1.unity
+    guid: d4a35a28292e5a649aebfa91f850bc9f
+  - enabled: 1
+    path: Assets/Scenes/Pe_2.unity
+    guid: 1773b8bbcbce9b14a81367bc1b48da5a
+  - enabled: 1
+    path: Assets/Scenes/Pe_3.unity
+    guid: 6715e9877dcab13488690ac8ff3a0130
+  - enabled: 1
+    path: Assets/Scenes/Sade_1.unity
+    guid: 6cb0689b7273c874ca932e15dfa86131
+  - enabled: 1
+    path: Assets/Scenes/Sade_2.unity
+    guid: 61af328735ff04046833815b357fa19d
+  - enabled: 1
+    path: Assets/Scenes/Sade_3.unity
+    guid: cc1455226d8041b41a225e19b529cea6
+  - enabled: 1
+    path: Assets/Scenes/Qop_1.unity
+    guid: 833d20d73b21f38428fee94cf50125e8
+  - enabled: 1
+    path: Assets/Scenes/Qop_2.unity
+    guid: 0ef8309f24213f3458f51f349cb83a11
+  - enabled: 1
+    path: Assets/Scenes/Qop_3.unity
+    guid: 64011c789cc9cdc4e85e1090ad63c514
+  - enabled: 1
+    path: Assets/Scenes/Rosh_1.unity
+    guid: b7e4458a31ded4649a23119c56c01e19
+  - enabled: 1
+    path: Assets/Scenes/Rosh_2.unity
+    guid: b63ab6377b9f61345a87590e9970a5da
+  - enabled: 1
+    path: Assets/Scenes/Rosh_3.unity
+    guid: d6556e19dea3beb45be70541efc7d355
+  - enabled: 1
+    path: Assets/Scenes/Shin_1.unity
+    guid: 2d4eb9fbebbac7a43aa31428dd28106e
+  - enabled: 1
+    path: Assets/Scenes/Shin_2.unity
+    guid: dc9df77c04facb04ab4858568515a678
+  - enabled: 1
+    path: Assets/Scenes/Shin_3.unity
+    guid: 2fd19ac35ce09e04492e89239b40fda0
+  - enabled: 1
+    path: Assets/Scenes/Taw_CREDITS.unity
+    guid: 89568ad047983744696c94a95a0b1669
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
