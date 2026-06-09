@@ -25,6 +25,7 @@ public class LevelTransitionEnd : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.audioSource.Play();
         startPosition = letter.transform.position;
         letter_sprite = letter.GetComponent<SpriteRenderer>();
         
@@ -61,7 +62,9 @@ public class LevelTransitionEnd : MonoBehaviour
 
     private void SetAlpha(float alpha)
     {
-        background.color = new Color(background.color.r, background.color.g, background.color.b, alpha);
-        letter_sprite.color = new Color(letter_sprite.color.r, letter_sprite.color.g, letter_sprite.color.b, alpha);
+        if(background != null)
+            background.color = new Color(background.color.r, background.color.g, background.color.b, alpha);
+        if(letter_sprite != null)
+            letter_sprite.color = new Color(letter_sprite.color.r, letter_sprite.color.g, letter_sprite.color.b, alpha);
     }
 }

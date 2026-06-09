@@ -34,13 +34,7 @@ public class LevelManager : MonoBehaviour
         won = true;
         
         Debug.Log("YOU WIN!");
-        StartCoroutine(NextLevel());
-    }
-
-    private IEnumerator NextLevel()
-    {
-        audioSource.PlayOneShot(winSfx, 0.5f);
-        yield return new WaitForSecondsRealtime(2.1f);
+        AudioManager.Instance.audioSource.PlayOneShot(winSfx, 0.5f);
         GameManager.Instance.LoadNextLevel();
     }
 

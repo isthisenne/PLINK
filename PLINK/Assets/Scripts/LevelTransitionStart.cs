@@ -37,6 +37,7 @@ public class LevelTransitionStart : MonoBehaviour
     private void Update()
     {
         if (!transitioning) return;
+        AudioManager.Instance.NextSong();
         SetVisible();
     
         // handle background and letter fade-in

@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 608088686}
   - component: {fileID: 608088685}
   m_Layer: 0
-  m_Name: AudioController
+  m_Name: Title Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -427,7 +427,7 @@ GameObject:
   - component: {fileID: 840444548}
   - component: {fileID: 840444547}
   m_Layer: 0
-  m_Name: Title
+  m_Name: Title Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

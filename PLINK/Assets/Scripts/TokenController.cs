@@ -17,9 +17,10 @@ public class TokenController : MonoBehaviour
     // used for secondary loss condition
     private float lastYPos = -100f;
     private float yThreshold = 3f;
-    private float heightCheckInterval = 2f;
+    public float heightCheckInterval = 2f;
     private float heightCheckTimer = 0f;
     
+    private bool won = false;
 
     // the Awake() function will handle level-specific modifiers to the token
     private void Awake()
@@ -115,6 +116,8 @@ public class TokenController : MonoBehaviour
 
     private void CheckFalling(float yPos)
     {
+        if (won) return;
+        
         // reset token if not moving
         if (Math.Abs(yPos - lastYPos) < yThreshold)
         {
@@ -127,6 +130,7 @@ public class TokenController : MonoBehaviour
     // checks wall collision
     private void OnCollisionEnter2D()
     {
+        if (won) return;
         if (isDropped && CanPlayBounceSFX())
         {
             audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
@@ -138,12 +142,14 @@ public class TokenController : MonoBehaviour
     // enter win/lose zones
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (won) return;
         if (other.gameObject.CompareTag("Fail"))
         {
             levelManager.Fail();
         }
         else if (other.gameObject.CompareTag("Win"))
         {
+            won = true;
             levelManager.ProgressLevel();
         }
     }
