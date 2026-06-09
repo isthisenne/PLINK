@@ -1,27 +1,46 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    [Header("Token")]
     public GameObject tokenPrefab;
     public Vector3 tokenSpawnPosition;
     private GameObject token;
     
+    [Header("Health UI")]
     public GameObject healthIndicator;
     private List<GameObject> healthIndicators = new List<GameObject>();
     private int health = 3;
+    
+    [Header("Sound")]
+    public AudioClip winSfx;
+    public AudioClip failSfx;
+    private AudioSource audioSource;
+    
+    private bool won = false;
     
     private void Start()
     {
         token = Instantiate(tokenPrefab, tokenSpawnPosition, Quaternion.identity);
         InitializeHealthUI();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void ProgressLevel()
     {
+        if (won) return;
+        won = true;
+        
         Debug.Log("YOU WIN!");
+        StartCoroutine(NextLevel());
+    }
+
+    private IEnumerator NextLevel()
+    {
+        audioSource.PlayOneShot(winSfx, 0.5f);
+        yield return new WaitForSecondsRealtime(2.1f);
         GameManager.Instance.LoadNextLevel();
     }
 
@@ -37,6 +56,7 @@ public class LevelManager : MonoBehaviour
         UpdateHealthUI();
         Destroy(token);
         token = Instantiate(tokenPrefab, tokenSpawnPosition, Quaternion.identity);
+        audioSource.PlayOneShot(failSfx, 0.5f);
     }
 
     // initialize health UI with three icons

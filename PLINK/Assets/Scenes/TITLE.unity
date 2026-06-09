@@ -226,9 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9a8651bddba34c479e5d4767fdfef24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectMaterial: {fileID: 2100000, guid: b730f8da3a768fa4c9749ba6e6641fac, type: 2}
-  timeScale: 1
-  strength: 0.5
 --- !u!114 &519420034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,7 +499,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -535,6 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b40a4cf223448394eb3542f63b3958ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 608088685}
+  startSfx: {fileID: 8300000, guid: 7f7f57aedf3b0a34bb1d26fbce6b2455, type: 3}
+  title: {fileID: 840444546}
+  scalingRate: 0.01
 --- !u!4 &1771311538
 Transform:
   m_ObjectHideFlags: 0
