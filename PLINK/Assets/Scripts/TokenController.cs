@@ -26,28 +26,19 @@ public class TokenController : MonoBehaviour
     private void Awake()
     {
         // bet size modifier
-        if (GameManager.Instance.CurrentLevel().Equals("Bet_1") ||
-            GameManager.Instance.CurrentLevel().Equals("Bet_2") ||
-            GameManager.Instance.CurrentLevel().Equals("Bet_3"))
-        {
+        if (GameManager.Instance.CurrentLevel().Contains("Bet"))
             this.transform.localScale = new Vector3(0.5f, 0.5f);
-        }
         else
-        {
             this.transform.localScale = Vector3.one;
-        }
         
         // gimel bounce modifier
         PhysicsMaterial2D physicsMaterial = new PhysicsMaterial2D();
         physicsMaterial.friction = 0.4f;
         physicsMaterial.bounciness = 0.3f;
         
-        if (GameManager.Instance.CurrentLevel().Equals("Gimel_1") ||
-            GameManager.Instance.CurrentLevel().Equals("Gimel_2") ||
-            GameManager.Instance.CurrentLevel().Equals("Gimel_3"))
-        {
-            physicsMaterial.bounciness = 0.8f;
-        }
+        if (GameManager.Instance.CurrentLevel().Contains("Gimel"))  physicsMaterial.bounciness = 0.8f;
+        if (GameManager.Instance.CurrentLevel().Contains("Tet"))  physicsMaterial.bounciness = 0.0f;
+        
         GetComponent<CircleCollider2D>().sharedMaterial = physicsMaterial;
     }
 
