@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
         won = true;
         
         Debug.Log("YOU WIN!");
-        AudioManager.Instance.audioSource.PlayOneShot(winSfx, 0.5f);
+        AudioManager.Instance.GetAS().PlayOneShot(winSfx, 0.5f);
         GameManager.Instance.LoadNextLevel();
     }
 
@@ -59,6 +59,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < health; i++)
         {
             Vector3 position = new Vector3(-65 + (i * 5), 35, 0);
+            if(GameManager.Instance.CurrentLevelName().Contains("Het")) position = new Vector3(65 - (i * 5), -35, 0); // upside-down
             GameObject icon = Instantiate(healthIndicator, position, Quaternion.identity, transform);
             healthIndicators.Add(icon);
         }

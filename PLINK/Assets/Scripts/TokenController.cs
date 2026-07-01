@@ -22,11 +22,18 @@ public class TokenController : MonoBehaviour
     
     private bool won = false;
 
-    // the Awake() function will handle level-specific modifiers to the token
-    private void Awake()
+    // the Start() function will handle level-specific modifiers to the token
+    private void Start()
     {
+        rb2d = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
+        // Cursor.visible = false;
+        
+        // *** LEVEL-SPECIFIC MODIFIERS ***
+        
         // bet size modifier
-        if (GameManager.Instance.CurrentLevel().Contains("Bet"))
+        if (GameManager.Instance.CurrentLevelName().Contains("Bet"))
             this.transform.localScale = new Vector3(0.5f, 0.5f);
         else
             this.transform.localScale = Vector3.one;
@@ -36,18 +43,10 @@ public class TokenController : MonoBehaviour
         physicsMaterial.friction = 0.4f;
         physicsMaterial.bounciness = 0.3f;
         
-        if (GameManager.Instance.CurrentLevel().Contains("Gimel"))  physicsMaterial.bounciness = 0.8f;
-        if (GameManager.Instance.CurrentLevel().Contains("Tet"))  physicsMaterial.bounciness = 0.0f;
+        if (GameManager.Instance.CurrentLevelName().Contains("Gimel"))  physicsMaterial.bounciness = 0.8f;
+        if (GameManager.Instance.CurrentLevelName().Contains("Tet"))  physicsMaterial.bounciness = 0.0f;
         
         GetComponent<CircleCollider2D>().sharedMaterial = physicsMaterial;
-    }
-
-    private void Start()
-    {
-        rb2d = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
-        levelManager = GameObject.Find("LevelManager").GetComponent<LevelManager>();
-        // Cursor.visible = false;
     }
 
     private void Update()
@@ -85,6 +84,7 @@ public class TokenController : MonoBehaviour
         if (!useMouseControls)
         {
             float moveHorizontal = Input.GetAxis ("Horizontal");
+            if(GameManager.Instance.CurrentLevelName().Contains("Het")) moveHorizontal *= -1; // upside-down
             Vector2 movement = new Vector2(moveHorizontal, 0);
             transform.Translate(movement * moveSpeed * Time.deltaTime);
         }

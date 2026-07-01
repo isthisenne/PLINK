@@ -25,7 +25,7 @@ public class LevelTransitionEnd : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.Instance.audioSource.Play();
+        AudioManager.Instance.GetAS().Play();
         startPosition = letter.transform.position;
         letter_sprite = letter.GetComponent<SpriteRenderer>();
         

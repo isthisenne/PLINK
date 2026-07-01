@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TITLE.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 70777088ace0309409899c36ca25d405
+  - enabled: 1
     path: Assets/Scenes/Alep_1.unity
     guid: 54afb10d86eab7b459cee8fa74297cef
   - enabled: 1
