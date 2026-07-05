@@ -3,22 +3,28 @@ using UnityEngine;
 
 public class TokenController : MonoBehaviour
 {
-    private LevelManager levelManager;
+    [Header("Values")]
     public float moveSpeed = 10f;
+    public float leftEdge = -25f;
+    public float rightEdge = 25f;
+    
+    private LevelManager levelManager;
     private Rigidbody2D rb2d;
     private bool isDropped = false;
     private bool useMouseControls = true; // whether input is using mouse or keyboard controls
     
-    private AudioSource audioSource;
-    public float timeBetweenBounceSFX = 0.1f;
-    private float lastBounceTime = -Mathf.Infinity;
-    public AudioClip bounce;
-    
     // used for secondary loss condition
-    private float lastYPos = -100f;
-    private float yThreshold = 3f;
+    [Header("Token Stuck Timeout")]
+    public float yThreshold = 3f;
     public float heightCheckInterval = 2f;
+    private float lastYPos = -100f;
     private float heightCheckTimer = 0f;
+    
+    [Header("Effects")]
+    public AudioClip bounce;
+    public float timeBetweenBounceSFX = 0.1f;
+    private AudioSource audioSource;
+    private float lastBounceTime = -Mathf.Infinity;
     
     private bool won = false;
 
@@ -64,6 +70,9 @@ public class TokenController : MonoBehaviour
                 heightCheckTimer = 0f;
                 CheckFalling(transform.position.y);
             }
+
+            if(GameManager.Instance.CurrentLevelName().Contains("Nun"))
+                HandleWarp();
         }
         
         // check input style
@@ -118,6 +127,18 @@ public class TokenController : MonoBehaviour
         lastYPos = yPos;
     }
 
+    // warp token to other side of screen on Nun
+    private void HandleWarp()
+    {
+        Vector3 pos = transform.position;
+        float width = GetComponent<SpriteRenderer>().bounds.extents.x;
+        
+        if(pos.x - width < leftEdge) pos.x = rightEdge - width;
+        if(pos.x + width > rightEdge) pos.x = leftEdge + width;
+        
+        transform.position = pos;
+    }
+
     // checks wall collision
     private void OnCollisionEnter2D()
     {
@@ -149,5 +170,22 @@ public class TokenController : MonoBehaviour
     {
         // check if enough time has passed since the last bounce
         return Time.time - lastBounceTime >= timeBetweenBounceSFX;
+    }
+    
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+
+        // Left edge
+        Gizmos.DrawLine(
+            new Vector3(leftEdge, -20, 0),
+            new Vector3(leftEdge, 20, 0)
+        );
+
+        // Right edge
+        Gizmos.DrawLine(
+            new Vector3(rightEdge, -20, 0),
+            new Vector3(rightEdge, 20, 0)
+        );
     }
 }

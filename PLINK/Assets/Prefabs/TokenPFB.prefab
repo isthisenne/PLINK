@@ -167,9 +167,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 12
-  timeBetweenBounceSFX: 0.15
-  bounce: {fileID: 8300000, guid: ca5939326987c4f4394e915487673a4b, type: 3}
+  leftEdge: -25
+  rightEdge: 25
+  yThreshold: 3
   heightCheckInterval: 3
+  bounce: {fileID: 8300000, guid: ca5939326987c4f4394e915487673a4b, type: 3}
+  timeBetweenBounceSFX: 0.15
 --- !u!82 &2102214664559036357
 AudioSource:
   m_ObjectHideFlags: 0
