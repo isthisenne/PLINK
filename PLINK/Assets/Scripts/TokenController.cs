@@ -12,6 +12,7 @@ public class TokenController : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isDropped = false;
     private bool useMouseControls = true; // whether input is using mouse or keyboard controls
+    public static event Action<TokenController> OnTokenDropped;
     
     // used for secondary loss condition
     [Header("Token Stuck Timeout")]
@@ -111,6 +112,7 @@ public class TokenController : MonoBehaviour
         {
             rb2d.constraints = RigidbodyConstraints2D.None;
             isDropped = true;
+            OnTokenDropped?.Invoke(this);
         }
     }
 
@@ -121,7 +123,7 @@ public class TokenController : MonoBehaviour
         // reset token if not moving
         if (Math.Abs(yPos - lastYPos) < yThreshold)
         {
-            levelManager.Fail();
+            LevelFail();
             Debug.Log("Token stuck, resetting");
         }
         lastYPos = yPos;
@@ -157,13 +159,23 @@ public class TokenController : MonoBehaviour
         if (won) return;
         if (other.gameObject.CompareTag("Fail"))
         {
-            levelManager.Fail();
+            LevelFail();
         }
         else if (other.gameObject.CompareTag("Win"))
         {
-            won = true;
-            levelManager.ProgressLevel();
+            LevelWin();
         }
+    }
+
+    public void LevelFail()
+    {
+        levelManager.Fail();
+    }
+
+    private void LevelWin()
+    {
+        won = true;
+        levelManager.ProgressLevel();
     }
 
     private bool CanPlayBounceSFX()
