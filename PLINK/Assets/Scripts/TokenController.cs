@@ -74,6 +74,11 @@ public class TokenController : MonoBehaviour
 
             if(GameManager.Instance.CurrentLevelName().Contains("Nun"))
                 HandleWarp();
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                LevelFail();
+            }
         }
         
         // check input style
